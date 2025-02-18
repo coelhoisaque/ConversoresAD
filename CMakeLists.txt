@@ -12,6 +12,7 @@ if (EXISTS ${picoVscode})
     include(${picoVscode})
 endif()
 # ====================================================================================
+
 # Generated Cmake Pico project file
 
 cmake_minimum_required(VERSION 3.13)
@@ -50,17 +51,12 @@ target_link_libraries(ConversoresAD
     hardware_i2c         # Suporte ao I2C
     hardware_pwm         # Suporte ao PWM
     hardware_adc         # Suporte ao ADC
-    ComversoresAD
 )
 # Add the standard include files to the build
 target_include_directories(ConversoresAD PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
-      )
-
-# Add any user requested libraries
-target_link_libraries(ConversoresAD 
-        
-        )
+        ${CMAKE_CURRENT_LIST_DIR}/lib 
+)
 
 pico_add_extra_outputs(ConversoresAD)
 
