@@ -36,12 +36,15 @@ void setup_pwm(uint gpio_pin) {
     pwm_set_enabled(slice_num, true);
 }
 
-// Função para atualizar o brilho do LED via PWM
+// Função para atualizar o brilho do LED via PWM 
 void update_pwm(uint gpio_pin, uint16_t adc_value) {
-    if (!pwm_enabled) return;
-
-    uint slice_num = pwm_gpio_to_slice_num(gpio_pin);
-    uint8_t brightness = (adc_value > 2048) ? (adc_value - 2048) / 16 : (2048 - adc_value) / 16;
+    uint8_t brightness;
+    if (pwm_enabled) {
+        uint16_t diff = (adc_value > 2048) ? (adc_value - 2048) : (2048 - adc_value);
+        brightness = (diff * 255) / 2047; // Mapeia 0-2047 para 0-255
+    } else {
+        brightness = 0; // Desliga quando PWM está desativado
+    }
     pwm_set_gpio_level(gpio_pin, brightness);
 }
 
@@ -73,6 +76,10 @@ void button_a_irq_handler(uint gpio, uint32_t events) {
 
     // Ativar/desativar LEDs PWM
     pwm_enabled = !pwm_enabled;
+
+    // Força atualização imediata dos LEDs
+    update_pwm(LED_RED_PIN, joystick_x);
+    update_pwm(LED_BLUE_PIN, joystick_y);
 }
 
 // Função para desenhar o quadrado no display
