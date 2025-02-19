@@ -23,7 +23,7 @@
 // Variáveis globais
 volatile bool toggle_green_led = false;
 volatile bool pwm_enabled = true;
-volatile uint8_t border_style = 0; // 0: sem borda, 1: linha simples, 2: linha dupla
+volatile uint8_t border_style = 2; // 0: sem borda, 1: linha simples, 2: linha dupla
 uint16_t joystick_x = 2048, joystick_y = 2048;
 int square_x = (SCREEN_WIDTH - SQUARE_SIZE) / 2;
 int square_y = (SCREEN_HEIGHT - SQUARE_SIZE) / 2;
