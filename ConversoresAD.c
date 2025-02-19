@@ -5,9 +5,9 @@
 #include "lib/ssd1306.h"
 
 // Definições de pinos
-#define LED_RED_PIN 11
+#define LED_RED_PIN 13
 #define LED_BLUE_PIN 12
-#define LED_GREEN_PIN 13
+#define LED_GREEN_PIN 11
 #define JOYSTICK_X_ADC_CHANNEL 0 // GPIO 26
 #define JOYSTICK_Y_ADC_CHANNEL 1 // GPIO 27
 #define JOYSTICK_BUTTON_PIN 22
