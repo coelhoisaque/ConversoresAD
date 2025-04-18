@@ -96,13 +96,6 @@ O joystick fornece valores analógicos correspondentes aos eixos X e Y, que são
 
 ---
 
-## **Demonstração**
-
-O vídeo completo da demonstração do projeto pode ser acessado aqui:  
-[Link do Vídeo](https://www.youtube.com/watch?v=y-L9Ctx-GL8)
-
----
-
 ## **Contribuições**
 
 Contribuições são bem-vindas! Se você encontrar algum problema ou tiver sugestões para melhorias, abra uma issue ou envie um pull request.
